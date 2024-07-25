@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>RANDOM JOKES</title>
+  </head>
+  <body>
+    <header>
+      <h1>Random Jokes</h1>
+      <nav>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="random"></div>
+      <div class="local"></div>
+    </div>
+    <form class="post-form" id="joke-form">
+      <label for="jokeType">Joke type:</label><br />
+      <input
+        type="text"
+        id="jokeType"
+        name="jokeType"
+        placeholder="Joke type"
+        required
+      /><br />
+
+      <label for="setup">Setup:</label><br />
+
+      <input
+        type="text"
+        id="setup"
+        name="setup"
+        placeholder="Setup"
+        required
+      /><br />
+
+      <label for="punchline">Punchline:</label><br />
+
+      <input
+        type="text"
+        id="punchline"
+        name="punchline"
+        placeholder="Punchline"
+        required
+      /><br />
+      <button type="submit">Submit</button>
+    </form>
+    <script src="scripts.js"></script>
+  </body>
+</html>

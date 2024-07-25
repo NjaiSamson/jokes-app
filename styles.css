@@ -1,0 +1,141 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    align-items: center;
+    color: white;
+    height: 12vh;
+    background-color: black;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+.container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+.container h4 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.container p {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1rem;
+    width: fit-content;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+.random {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    margin: 2rem;
+    padding: 2rem;
+    min-height: 30vh;
+    height: fit-content;
+    width: 40vw;
+    background: linear-gradient(-270deg, #2e3192, #1bffff);
+}
+
+.local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.joke-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 2rem;
+    padding: 2rem;
+    min-height: 30vh;
+    height: fit-content;
+    width: 40vw;
+    background: linear-gradient(270deg,#C33764, #1D2671);
+}
+
+
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+form {
+    height: fit-content;
+    width: 40vw;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+/* Samson burning the house to kill the rat!!! */
+/* button {
+    height: 30px;
+    width: 200px;
+    position: relative;
+}
+
+button.initial::after {
+    content: 'Show Punchline';
+    color: aliceblue;
+    background-color: black;
+}
+
+button.toggled::after {
+    content: 'Hide Punchline';
+    background-color: blue;
+    padding-inline: 20px;
+}
+
+button::after {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
