@@ -15,13 +15,15 @@ jokeForm.addEventListener("submit", function (event) {
     setup: setup,
     punchline: punchline,
   };
-  
+
   jokePoster(jokeDetails);
-  jokeForm.reset()
+  jokeForm.reset();
 });
 
 // Joke poster
 function jokePoster(jokeDetails) {
+
+  
   fetch(localJokesURL, {
     method: "POST",
     headers: {
@@ -31,7 +33,7 @@ function jokePoster(jokeDetails) {
   })
     .then((res) => res.json())
     .then((joke) => {
-    renderLocalJokes(joke)
+      renderLocalJokes(joke);
     });
 }
 
@@ -104,12 +106,14 @@ function renderLocalJokes(mzaha) {
   const punchline = document.createElement("p");
   const showPunchline = document.createElement("button");
   const deleteBtn = document.createElement("button");
+  const editBtn = document.createElement("button");
 
   punchline.className = "hide";
   jokeDiv.className = "joke-div";
   jokeDiv.id = mzaha.id;
 
   showPunchline.textContent = "Show Punchline";
+  editBtn.textContent = "Edit Joke";
 
   showPunchline.addEventListener("click", () => {
     if (punchline.className === "hide") {
@@ -130,18 +134,49 @@ function renderLocalJokes(mzaha) {
   deleteBtn.addEventListener("click", function () {
     deleteLocalJokes(jokeId);
   });
-  jokeDiv.append(type, setup, showPunchline, punchline, deleteBtn);
+
+  editBtn.addEventListener("click", function () {
+    editJokes(jokeId);
+  });
+
+  jokeDiv.append(type, setup, showPunchline, punchline, editBtn, deleteBtn);
   localJokesDiv.append(jokeDiv);
 }
 
 // Editing joke
 function editJokes(jokeId) {
-  fetch(`http://localhost:3000/jokes/${jokeId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
+  const editDiv = document.getElementById(jokeId);
+  const editForm = document.createElement("form");
+  const setupInput = document.createElement("input");
+  const punchlineInput = document.createElement("input");
+  const submitInputBtn = document.createElement("input");
+  submitInputBtn.type = "submit";
+  setupInput.placeholder = "Enter joke setup";
+  punchlineInput.placeholder = "Enter punchline";
+
+  editForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const editData = {
+      setup: setupInput.value,
+      punchline: punchlineInput.value,
+    };
+
+    fetch(`http://localhost:3000/jokes/${jokeId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editData),
+    })
+      .then((res) => res.json())
+      .then((joke) => {
+        renderLocalJokes(joke);
+      });
   });
+
+  editForm.append(setupInput, punchlineInput, submitInputBtn);
+  editDiv.append(editForm);
 }
 
 // Deleting local jokes
@@ -153,8 +188,8 @@ function deleteLocalJokes(jokeId) {
     //   "content-Type": "application/json",
     // },
   })
-  .then(res => res.json())
-  .then(() => {
-      idDelete.remove(jokeId)
-  })
+    .then((res) => res.json())
+    .then(() => {
+      idDelete.remove(jokeId);
+    });
 }

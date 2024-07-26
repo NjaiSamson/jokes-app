@@ -1,3 +1,16 @@
 {
-  "jokes": []
+  "jokes": [
+    {
+      "id": "d1e5",
+      "type": "Joke",
+      "setup": "Chnged",
+      "punchline": "Now"
+    },
+    {
+      "id": "f766",
+      "type": "General",
+      "setup": "New",
+      "punchline": "New"
+    }
+  ]
 }
